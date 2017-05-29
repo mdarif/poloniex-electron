@@ -1,0 +1,23 @@
+body {
+	background: #101942;
+	color: #8a8989;
+	font-size: 14px;
+}
+h1 {
+	font-size: 30px;
+}
+h2 {
+	font-size: 22px;
+}
+.table td,
+.table th,
+.table thead th {
+	border: 1px solid #253740;
+	padding: 5px;
+	vertical-align: middle;
+}
+.table thead th {
+	background: #25353e;
+	border-color: #2d4450;
+	text-align: center;
+}

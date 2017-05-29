@@ -1,0 +1,112 @@
+html,
+body {
+	height: 100%;
+}
+body {
+	background: #f7f4ec;
+	font-size: 14px;
+	overflow:hidden;
+}
+.main-header {
+	position: absolute;
+	width: 100%;
+	background: #fff;
+	-webkit-box-shadow: 0 8px 6px -6px #e8dfdf;
+     -moz-box-shadow: 0 8px 6px -6px #e8dfdf;
+          box-shadow: 0 8px 6px -6px #e8dfdf;
+	color: #7b2f3d;
+	padding: 15px 0;
+	top: 0;
+	left: 0;
+	z-index: 999999;
+}
+.main-header h1 {
+	font-size: 25px;
+}
+.main-header .p-2 {
+	min-width: 40px;
+	cursor: pointer;
+	text-align: center;
+}
+.main-header .p-2:hover {
+	background: #f7f4ec;
+}
+.main-header i,
+.modal-box i {
+	color: #526066;
+	cursor: pointer;
+}
+.main-header i:hover,
+.modal-box i:hover {
+	color: #7b2f3d;
+	font-size: 20px;
+}
+.middle-container {
+	height: 100%;
+	padding: 83px 0 0;
+}
+.middle-container .scrollable-container {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding: 30px 0;
+}
+table th,
+table td,
+.table thead th,
+.table td {
+	border: #ded3b9 1px solid;
+	padding: 8px;
+}
+table td,
+.table td {
+	background: #fff;
+	vertical-align: middle;
+}
+table th,
+.table thead th {
+	text-align: center;
+	vertical-align: middle;
+}
+table th,
+.table thead th,
+table tfoot td,
+.table tfoot td {
+	background: #ece4cf;
+	color: #526066;
+}
+
+.table tbody td {
+	text-align: right;
+}
+
+.modal-box-header {
+	background: #7b2f3d;
+	color: #fff;
+}
+body.modal-box i {
+	color: #ece4cf;
+}
+body.modal-box i:hover {
+	color: #fff;
+}
+body.modal-box .middle-container {
+	padding-top: 20px;
+	overflow: hidden;
+}
+.orders-table {
+	width: 100%;
+	margin-top: 10px;
+}
+.orders-table thead th,
+.orders-table td {
+	font-size: 12px;
+	padding: 2px;
+}
+.orders-table tfoot td {
+	font-weight: bold;
+}
+.balance-sheet-table {
+	display: none;
+}
