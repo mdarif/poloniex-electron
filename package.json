@@ -1,0 +1,9 @@
+{
+  "name": "poloniex-balance-sheet",
+  "version": "1.0.0",
+  "main": "main.js",
+  "dependencies": {
+    "extend": "^3.0.1",
+    "q": "^1.5.0"
+  }
+}

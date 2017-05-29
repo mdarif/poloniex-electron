@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Poloniex Balance Sheet</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+<body>
+	<div class="main-header">
+		<div class="container">
+			<div class="d-flex justify-content-end">
+				<div class="mr-auto p-2">
+					<h1>Poloniex Balance Sheet</h1>
+				</div>
+				<div id="about-btn" class="p-2 align-self-center">
+					<i title="About" class="fa fa-info" aria-hidden="true"></i>
+				</div>
+				<div id="settings-btn" class="p-2 align-self-center">
+					<i title="Settings" class="fa fa-cog" aria-hidden="true"></i>
+				</div>
+				<div id="minimize-win-btn" class="p-2 align-self-center">
+					<i title="Minimize" class="fa fa-window-minimize" aria-hidden="true"></i>
+				</div>
+				<div id="maximize-win-btn" class="p-2 align-self-center">
+					<i title="Maximize" class="fa fa-window-maximize" aria-hidden="true"></i>
+				</div>
+				<div id="close-win-btn" class="p-2 align-self-center">
+					<i title="Close" class="fa fa-times" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="middle-container">
+		<div class="scrollable-container">
+			<div class="container">
+				<div id="ajax-error" class="alert alert-danger font-weight-bold hidden-xs-up" role="alert"></div>
+
+				<table id="balance-sheet-table" class="table balance-sheet-table">
+					<thead>
+						<tr>
+							<th rowspan="2">Currencies</th>
+							<th rowspan="2">Available</th>
+							<th rowspan="2">On Orders</th>
+							<th rowspan="2">Total</th>
+							<th rowspan="2">Last Price</th>
+							<th class="text-center" colspan="2">BTC Value</th>
+						</tr>
+						<tr>
+							<th>Current</th>
+							<th>Order</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+					<tfoot>
+						<tr>
+							<td colspan="5"><strong>Total (Difference <span id="btc-difference"></span>)</strong></td>
+							<td class="text-right"><strong id="total-btc"></strong></td>
+							<td class="text-right"><strong id="order-total-btc"></strong></td>
+						</tr>
+						<tr>
+							<td colspan="5">
+								<strong>
+									Total (&#8377; <span id="zabpay-btc-sell-value"></span>/BTC sell price on Zabpay | Difference &#8377;<span id="total-diff-in-rs"></span>)
+								</strong>
+							</td>
+							<td class="text-right">&#8377; <strong id="total-btc-in-rs"></strong></td>
+							<td class="text-right">&#8377; <strong id="total-order-btc-in-rs"></strong></td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<script src="js/vendor/jquery.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
