@@ -149,16 +149,28 @@
 			getTickerAllMarkets()
 		)
 		.then((openOrders, zabpay, tickerAllMarkets) => {
+			console.log("Got the account balance!");
 			getAccountBalances().then(
 				accountBalances => updateView(openOrders, zabpay, tickerAllMarkets, accountBalances)
 			);
 		})
 		.fail((data) => {
-			$('#ajax-error').removeClass('hidden-xs-up').html(
-				JSON.parse(data.responseText).error
-			);
+			console.error("Something goes wrong!!!");
+			if(data && data.responseText) {
+				$('#ajax-error').removeClass('hidden-xs-up').html(
+					JSON.parse(data.responseText).error
+				);
+			} else {
+				$('#ajax-error').removeClass('hidden-xs-up').html(
+					"Your internet connection is down, please check and click on Reload button!"
+				);
+			}
 		});
 	}
+
+	/*function checkInternetConnection() {
+
+	}*/
 
 	function updateView(openOrders, zabpay, tickerAllMarkets, accountBalances) {
 		var html = '';
