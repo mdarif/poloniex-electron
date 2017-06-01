@@ -20,7 +20,7 @@
 			frame: false
 		});
 
-		child.webContents.openDevTools();
+		//child.webContents.openDevTools();
 
 		child.loadURL(url.format({
 			pathname: path.join(__dirname + '/' + page),
