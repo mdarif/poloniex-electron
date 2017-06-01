@@ -287,6 +287,7 @@
 		$('#minimize-win-btn').on('click', () => mainWindow.minimize());
 		$('#maximize-win-btn').on('click', () => onMaximize());
 		$('#close-win-btn').on('click', () => mainWindow.close());
+		$('.reload').on('click', () => refreshPage());
 
 		remote.ipcMain.on('message', (event, data) => {
 			getSettings()
@@ -295,6 +296,10 @@
 
 	function showSettingsDialog() {
 		openChildWindow('settings.html', 600, 260)
+	}
+
+	function refreshPage() {
+		window.location.reload();
 	}
 
 	function init() {
