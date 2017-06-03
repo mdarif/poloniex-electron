@@ -156,21 +156,15 @@
 		})
 		.fail((data) => {
 			console.error("Something goes wrong!!!");
-			if(data && data.responseText) {
-				$('#ajax-error').removeClass('hidden-xs-up').html(
-					JSON.parse(data.responseText).error
-				);
-			} else {
-				$('#ajax-error').removeClass('hidden-xs-up').html(
-					"Your internet connection is down, please check and click on Reload button!"
-				);
-			}
+			checkInternetConnection(data)
 		});
 	}
 
-	/*function checkInternetConnection() {
+	function checkInternetConnection(data) {
+		var message = data && data.responseText ? JSON.parse(data.responseText).error : "Your internet connection is down, please check and click on Reload button!";
 
-	}*/
+		$('#ajax-error').removeClass('hidden-xs-up').html(message);
+	}
 
 	function updateView(openOrders, zabpay, tickerAllMarkets, accountBalances) {
 		var html = '';
