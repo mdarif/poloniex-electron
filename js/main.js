@@ -155,15 +155,24 @@
 			);
 		})
 		.fail((data) => {
-			console.error("Something goes wrong!!!");
+			console.error("Something goes wrong!!!", data);
+			checkAPISecretExist(data);
 			checkInternetConnection(data)
 		});
 	}
 
-	function checkInternetConnection(data) {
-		var message = data && data.responseText ? JSON.parse(data.responseText).error : "Your internet connection is down, please check and click on Reload button!";
+	function checkAPISecretExist(data) {
+			if(data && (data.responseText !== '' && (JSON.parse(data.responseText).error == "Invalid API key\/secret pair."))) {
+				showSettingsDialog();
+				$('#ajax-error').addClass('hidden-xs-up')
+			}
+	}
 
-		$('#ajax-error').removeClass('hidden-xs-up').html(message);
+	function checkInternetConnection(data) {
+		if (data && (data.statusText !== 'Forbidden')) {
+			var message = data.responseText ? JSON.parse(data.responseText).error : "Your internet connection is down, please check and click on Reload button!";
+			$('#ajax-error').removeClass('hidden-xs-up').html(message);
+		}
 	}
 
 	function updateView(openOrders, zabpay, tickerAllMarkets, accountBalances) {
@@ -266,7 +275,7 @@
 	     return encodeURIComponent(param) + '=' + encodeURIComponent(parameters[param]);
 	  }).join('&');
 
-	  signature = cryptoJs.createHmac('sha512', settings.sceret).update(paramString).digest('hex');
+	  signature = cryptoJs.createHmac('sha512', settings.secret).update(paramString).digest('hex');
 
 	  return {
 	    Key: settings.apikey,
@@ -278,7 +287,7 @@
 		settingsHandler.read().then(data => {
 			settings = data;
 
-			if(settings.apikey === "" || settings.sceret === "") {
+			if(settings.apikey === "" || settings.secret === "") {
 				showSettingsDialog();
 			} else {
 				$balanceSheetTable.show();
@@ -301,7 +310,7 @@
 	}
 
 	function showSettingsDialog() {
-		openChildWindow('settings.html', 600, 260)
+		openChildWindow('settings.html', 600, 260);
 	}
 
 	function refreshPage() {

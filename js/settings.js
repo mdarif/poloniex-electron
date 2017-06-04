@@ -15,7 +15,7 @@
 
 	function updateSettings() {
 		$('#api-key').val(settings.apikey);
-		$('#sceret').val(settings.sceret);
+		$('#secret').val(settings.secret);
 	}
 
 	function bindEvents() {
@@ -25,11 +25,11 @@
 
 	function onSave() {
 		settings.apikey = $('#api-key').val();
-		settings.sceret = $('#sceret').val();
+		settings.secret = $('#secret').val();
 
 		settingsHandler.update({
 			apikey: settings.apikey,
-			sceret: settings.sceret
+			secret: settings.secret
 		}).then(() => {
 			ipcRenderer.send('message', 'true');
 			mainWindow.close();
