@@ -84,7 +84,7 @@
 
 				if(data.error)
 					defer.reject({
-						responseText: JSON.Stringify(data.error)
+						responseText: JSON.stringify(data.error)
 					});
 
 				Object.keys(data).forEach(function(key) {
@@ -117,7 +117,7 @@
 
 				if(data.error)
 						defer.reject({
-							responseText: JSON.Stringify(data.error)
+							responseText: JSON.stringify(data.error)
 						});
 
 				Object.keys(data).forEach(function(key) {
