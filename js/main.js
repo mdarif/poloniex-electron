@@ -156,16 +156,29 @@
 		})
 		.fail((data) => {
 			console.error("Something goes wrong!!!", data);
-			checkAPISecretExist(data);
-			checkInternetConnection(data)
+			//checkAPISecretExist(data);
+			//checkInternetConnection(data)
+			checkErrorScenarios(data);
 		});
 	}
 
-	function checkAPISecretExist(data) {
-			if(data && (data.responseText !== '' && (JSON.parse(data.responseText).error == "Invalid API key\/secret pair."))) {
-				showSettingsDialog();
-				$('#ajax-error').addClass('hidden-xs-up')
-			}
+	function checkErrorScenarios(data) {
+		if(data && (data.responseText !== '' && (JSON.parse(data.responseText).error == "Invalid API key\/secret pair."))) {
+			showSettingsDialog();
+			$('#ajax-error').addClass('hidden-xs-up')
+		} else if (data && (data.statusText !== 'Forbidden')) {
+			var message = data.responseText ? JSON.parse(data.responseText).error : "Your internet connection is down, please check and click on Reload button!";
+			$('#ajax-error').removeClass('hidden-xs-up').html(message);
+		} else {
+			$('#ajax-error').removeClass('hidden-xs-up').html(data.responseText);
+		}
+	}
+
+/*	function checkAPISecretExist(data) {
+		if(data && (data.responseText !== '' && (JSON.parse(data.responseText).error == "Invalid API key\/secret pair."))) {
+			showSettingsDialog();
+			$('#ajax-error').addClass('hidden-xs-up')
+		}
 	}
 
 	function checkInternetConnection(data) {
@@ -173,7 +186,7 @@
 			var message = data.responseText ? JSON.parse(data.responseText).error : "Your internet connection is down, please check and click on Reload button!";
 			$('#ajax-error').removeClass('hidden-xs-up').html(message);
 		}
-	}
+	}*/
 
 	function updateView(openOrders, zabpay, tickerAllMarkets, accountBalances) {
 		var html = '';
