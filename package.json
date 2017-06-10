@@ -2,8 +2,17 @@
   "name": "poloniex-balance-sheet",
   "version": "1.0.0",
   "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . polo-electron"
+  },
   "dependencies": {
     "extend": "^3.0.1",
     "q": "^1.5.0"
+  },
+  "devDependencies": {
+
+    "electron": "^1.6.10",
+    "electron-packager": "^8.7.1"
   }
 }
